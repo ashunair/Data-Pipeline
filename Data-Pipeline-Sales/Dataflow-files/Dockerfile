@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY dataflow_pipeline.py /app
 COPY requirements.txt /app
-COPY Data-Pipeline-Sales/data-pipleine-keys.json /app
+COPY /home/christyachu2/Data-Pipeline/Data-Pipeline-Sales/data-pipleine-keys.json /app
 
 RUN pip install --no-cache-dir -r requirements.txt
 
