@@ -4,8 +4,7 @@ WORKDIR /app
 
 COPY dataflow_pipeline.py /app
 COPY requirements.txt /app
-COPY /home/christyachu2/Data-Pipeline/Data-Pipeline-Sales/data-pipleine-keys.json /app
-
+COPY ../data-pipleine-keys.json /app
 RUN pip install --no-cache-dir -r requirements.txt
 
 ENV GOOGLE_APPLICATION_CREDENTIALS=/app/data-pipleine-keys.json
