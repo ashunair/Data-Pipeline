@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dataflow-runner
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dataflow-runner
+  template:
+    metadata:
+      labels:
+        app: dataflow-runner
+    spec:
+      containers:
+      - name: dataflow-runner
+        image: gcr.io/nth-suprstate-438619-c9/dataflow-runner:latest
+        env:
+        - name: GOOGLE_APPLICATION_CREDENTIALS
+          value: /app/data-pipleine-keys.json
+        volumeMounts:
+        - mountPath: /app
+          name: gcp-credentials
+      volumes:
+      - name: gcp-credentials
+        secret:
+          secretName: gcp-keyfile
